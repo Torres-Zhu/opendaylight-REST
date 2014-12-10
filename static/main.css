@@ -1,0 +1,115 @@
+body {
+	background: white url(../images/openstack-page-bkg.jpg) no-repeat scroll 0px 0px;
+	border-top: 3px solid #255e6e;
+	color: #535353;
+}
+.subhead {
+	border-bottom: 1px dotted;
+	padding-bottom: 5px;
+	border-color: #c5e2ea;
+	margin-bottom: 20px;
+}
+
+
+
+.subhead h2 {
+    color: #cf2f19;
+    font-size: 20px;
+    font-weight: normal;
+    position: relative;
+    margin-left: -20px;
+    padding-left: 20px;
+}
+
+
+
+
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ *
+ * Informed by bootstrap 3.0 site
+ */
+
+
+
+/* First level of nav */
+.api-sidenav {
+    margin-top: 20px;
+    margin-left: -10px;
+    margin-bottom: 30px;
+    width: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    /*margin-top: 30px;*/
+}
+
+/* All levels of nav */
+.api-sidebar .nav > li > a {
+    display: block;
+    color: #716b7a;
+    padding: 5px 20px;
+    font-size: 12px;
+}
+
+.api-sidebar .nav > li > a:hover,
+.api-sidebar .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #E0E4E6;
+}
+
+.api-sidebar .nav > .active > a,
+.api-sidebar .nav > .active:hover > a,
+.api-sidebar .nav > .active:focus > a {
+    font-weight: bold;
+    color: #cf2f19;
+    background-color: transparent;
+    border-right: 2px solid #cf2f19;
+}
+
+/* Nav: second level (shown on .active) */
+.api-sidebar .nav .nav {
+    margin-bottom: 8px;
+}
+
+.api-sidebar .nav .nav > li > a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+/* Show and affix the side nav when space allows it */
+
+
+.nav > li.divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+
+
+/* @end */
+
+/* handle making the rows visible in mobile */
+
+.doc-entry > .row {
+    background-color: #eee;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+@media (min-width: 992px) {
+    .doc-entry > .row {
+        background-color: transparent;
+        margin-bottom: inherit;
+        padding: inherit;
+    }
+}

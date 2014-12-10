@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://developer.openstack.org/api-ref-databases-v1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <meta charset="UTF-8">
+      <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <title>Topology Rest API</title>
+      <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ url_for('static', filename = 'main.css') }}" rel="stylesheet" type="text/css">
+   </head>
+   <body style="">
+      
+      <div class="container">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="api-sidebar affix" data-offset-bottom="0" data-offset-top="80" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REST&nbsp;API</li>
+                     <li class="divider"></li>
+                     <ul class="nav active">
+                        <li><a href="topology">Topology REST API</a></li>
+                        <li><a href="hosttracker">Host Tracker REST API</a></li>
+                     </ul>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="databases-v1.0">
+                  <div class="subhead">
+                     <h2>Topology REST API</h2>
+                  </div>
+                  
+                  
+                  <div id="Database_Instances">
+                     <div class="doc-entry">
+                        <div class="row d91e140">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the Topology</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the Topology for a certain Container
+                              </p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e140" data-toggle="collapse" id="detail-d91e140-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e140">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The Container Name was not found</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>The container for which we want to retrieve the topology (Eg. 'default')</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>_q</td>
+                                             <td>(no documentation provided)</td>
+                                             <td>query</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>topology</td>
+                                             <td>A list of edgeProperties</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>edgeProperties</td>
+                                             <td>One edge and its properties</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>edge</td>
+                                             <td>A directed edge connecting headNodeConnector and tailNodeConnector</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>properties</td>
+                                             <td>The properties of an edge</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>tailNodeConnector</td>
+                                             <td>A nodeConnector which means a generic network element attachment points, attached to one node</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>headNodeConnector</td>
+                                             <td>A nodeConnector which means a generic network element attachment points, attached to one node</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>node</td>
+                                             <td>A generic network element in multiple SDNs technologies. A Node is identified by the pair (id, type)</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <b>Request example</b><br>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default</pre>
+                              </div>
+                              <b>Response example</b><br>
+                              <div class="example">
+                                <pre>
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;topology&gt;
+    &lt;edgeProperties&gt;
+        &lt;edge&gt;
+            &lt;tailNodeConnector&gt;
+                &lt;node&gt;
+                    &lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+                    &lt;type&gt;OF&lt;/type&gt;
+                &lt;/node&gt;
+                &lt;id&gt;2&lt;/id&gt;
+                &lt;type&gt;OF&lt;/type&gt;
+            &lt;/tailNodeConnector&gt;
+            &lt;headNodeConnector&gt;
+                &lt;node&gt;
+                    &lt;id&gt;00:00:00:00:00:00:00:51&lt;/id&gt;
+                    &lt;type&gt;OF&lt;/type&gt;
+                &lt;/node&gt;
+                &lt;id&gt;2&lt;/id&gt;
+                &lt;type&gt;OF&lt;/type&gt;
+            &lt;/headNodeConnector&gt;
+        &lt;/edge&gt;
+        &lt;properties&gt;
+            &lt;state&gt;
+                &lt;value&gt;1&lt;/value&gt;
+            &lt;/state&gt;
+            &lt;config&gt;
+                &lt;value&gt;1&lt;/value&gt;
+            &lt;/config&gt;
+            &lt;name&gt;
+                &lt;value&gt;C1_2-L2_2&lt;/value&gt;
+            &lt;/name&gt;
+            &lt;timeStamp&gt;
+                &lt;value&gt;1377279422032&lt;/value&gt;
+                &lt;name&gt;creation&lt;/name&gt;
+            &lt;/timeStamp&gt;
+        &lt;/properties&gt;
+    &lt;/edgeProperties&gt;
+    &lt;edgeProperties&gt;
+        &lt;edge&gt;
+            &lt;tailNodeConnector&gt;
+                &lt;node&gt;
+                    &lt;id&gt;00:00:00:00:00:00:00:51&lt;/id&gt;
+                    &lt;type&gt;OF&lt;/type&gt;
+                &lt;/node&gt;
+                &lt;id&gt;2&lt;/id&gt;
+                &lt;type&gt;OF&lt;/type&gt;
+            &lt;/tailNodeConnector&gt;
+            &lt;headNodeConnector&gt;
+                &lt;node&gt;
+                    &lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+                    &lt;type&gt;OF&lt;/type&gt;
+                &lt;/node&gt;
+                &lt;id&gt;2&lt;/id&gt;
+                &lt;type&gt;OF&lt;/type&gt;
+            &lt;/headNodeConnector&gt;
+        &lt;/edge&gt;
+        &lt;properties&gt;
+            &lt;state&gt;
+                &lt;value&gt;1&lt;/value&gt;
+            &lt;/state&gt;
+            &lt;name&gt;
+                &lt;value&gt;L2_2-C1_2&lt;/value&gt;
+            &lt;/name&gt;
+            &lt;config&gt;
+                &lt;value&gt;1&lt;/value&gt;
+            &lt;/config&gt;
+            &lt;timeStamp&gt;
+                &lt;value&gt;1377279423564&lt;/value&gt;
+                &lt;name&gt;creation&lt;/name&gt;
+            &lt;/timeStamp&gt;
+        &lt;/properties&gt;
+    &lt;/edgeProperties&gt;
+&lt;/topology&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in JSON:
+{
+   "edgeProperties":[
+      {
+         "edge":{
+            "tailNodeConnector":{
+               "node":{
+                  "id":"00:00:00:00:00:00:00:02",
+                  "type":"OF"
+               },
+               "id":"2",
+               "type":"OF"
+            },
+            "headNodeConnector":{
+               "node":{
+                  "id":"00:00:00:00:00:00:00:51",
+                  "type":"OF"
+               },
+               "id":"2",
+               "type":"OF"
+            }
+         },
+         "properties":{
+            "timeStamp": {
+               "value": 1379527162648,
+               "name": "creation",
+            },
+            "name": {
+               "value": "s2-eth3"
+            },
+            "state": {
+               "value": 1
+            },
+            "config": {
+               "value": 1
+            },
+            "bandwidth": {
+               "value": 10000000000
+            }
+         }
+      },
+      {
+         "edge":{
+            "tailNodeConnector":{
+               "node":{
+                  "id":"00:00:00:00:00:00:00:51",
+                  "type":"OF"
+               },
+               "id":"2",
+               "type":"OF"
+            },
+            "headNodeConnector":{
+               "node":{
+                  "id":"00:00:00:00:00:00:00:02",
+                  "type":"OF"
+               },
+               "id":"2",
+               "type":"OF"
+            }
+          },
+          "properties":{
+            "timeStamp": {
+               "value": 1379527162648,
+               "name": "creation",
+            }
+         }
+       }
+    ]
+ }</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e400">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}/userLink/{name}</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Add an User Link</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Add an User Link for a certain Container
+                              </p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e400" data-toggle="collapse" id="detail-d91e400-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e400">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>201 Created</td>
+                                             <td>User Link added successfully</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The Container Name was not found</td>
+                                          </tr>
+                                          <tr>
+                                             <td>409 Conflict</td>
+                                             <td>Failed to add User Link due to Conflicting Name</td>
+                                          </tr>
+                                          <tr>
+                                             <td>500 Internal Server Error</td>
+                                             <td>Failed to add User Link. Failure Reason included in HTTP Error response</td>
+                                          </tr>
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller services are unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container (Eg. 'default')</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>Name of the user link</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>topologyUserLinkConfig</td>
+                                             <td>The configuration of a user link</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>status</td>
+                                             <td>The status of a user link which wanted to be set</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>srcNodeConnector</td>
+                                             <td>The configuration of a user link</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>dstNodeConnector</td>
+                                             <td>The configuration of a user link</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <b>Request example</b><br>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLink/link1</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;topologyUserLinkConfig&gt;
+  &lt;status&gt;Success&lt;/status&gt;
+  &lt;name&gt;link1&lt;/name&gt;
+  &lt;srcNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:02&lt;/srcNodeConnector&gt;
+  &lt;dstNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:51&lt;/dstNodeConnector&gt;
+&lt;/topologyUserLinkConfig&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request body in JSON:
+{
+  "status":"Success",
+  "name":"link1",
+  "srcNodeConnector":"OF|2@OF|00:00:00:00:00:00:00:02",
+  "dstNodeConnector":"OF|2@OF|00:00:00:00:00:00:00:51"
+}</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e259">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}/userLink/{name}</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Delete an User Link</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Delete an User Link for a certain Container
+                              </p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e259" data-toggle="collapse" id="detail-d91e259-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e259">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>204 No Content</td>
+                                             <td>User link removed successfully</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The Container Name or Link Configuration Name was not found</td>
+                                          </tr>
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller services are unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container (Eg. 'default')</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>Name of the Link Configuration (Eg. 'config1') </td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLink/config1</pre>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e692">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}/userLinks</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the user configured links</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the user configured links for a certain &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Container
+                              </p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e692" data-toggle="collapse" id="detail-d91e692-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e692">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The Container Name was not found</td>
+                                          </tr>
+                                          
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>The container for which we want to retrieve the user links (Eg. 'default')</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>_q</td>
+                                             <td>(no documentation provided)</td>
+                                             <td>query</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLinks</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+   &lt;userLinks&gt;
+      &lt;status&gt;Success&lt;/status&gt;
+      &lt;name&gt;link1&lt;/name&gt;
+      &lt;srcNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:02&lt;/srcNodeConnector&gt;
+      &lt;dstNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:51&lt;/dstNodeConnector&gt;
+   &lt;/userLinks&gt;
+&lt;/list&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in JSON:
+{
+  "userLinks": [
+    {
+      "status": "Success",
+      "name": "link1",
+      "srcNodeConnector": "OF|2@OF|00:00:00:00:00:00:00:02",
+      "dstNodeConnector": "OF|5@OF|00:00:00:00:00:00:00:05"
+    }
+  ]
+}</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+      </div><script src="{{ url_for('static', filename = 'jquery-1.10.2.min.js') }}" type="text/javascript"></script><script src="{{ url_for('static', filename = 'bootstrap.min.js') }}" type="text/javascript"></script>
+</body></html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://developer.openstack.org/api-ref-databases-v1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <meta charset="UTF-8">
+      <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <title>Host Tracker REST API</title>
+      <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ url_for('static', filename = 'main.css') }}" rel="stylesheet" type="text/css">
+   </head>
+   <body style="">
+      
+      <div class="container">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="api-sidebar affix" data-offset-bottom="0" data-offset-top="80" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REST&nbsp;API</li>
+                     <li class="divider"></li>
+                     <ul class="nav active">
+                        <li><a href="topology">Topology REST API</a></li>
+                        <li><a href="hosttracker">Host Tracker REST API</a></li>
+                     </ul>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="databases-v1.0">
+                  <div class="subhead">
+                     <h2>Host Tracker REST API</h2>
+                  </div>
+                  
+                  
+                  <div id="Database_Instances">
+                     <div class="doc-entry">
+                        <div class="row d91e140">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a host</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a host that matches the IP &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;Address value passed as parameter</p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e140" data-toggle="collapse" id="detail-d91e140-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e140">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>200 OK</td>
+                                             <td>Operation successful</td>
+                                          </tr>
+                                          <tr>
+                                             <td>400 Bad Request</td>
+                                             <td>Invalid IP specified in networkAddress parameter</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The containerName is not found</td>
+                                          </tr>
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller Services are unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container. The Container name for the base controller is "default"</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>IP Address being looked up</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in XML
+
+&lt;hostConfig&gt;
+ &lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+ &lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+ &lt;nodeType&gt;OF&lt;/nodeType&gt;
+ &lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+ &lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+ &lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+ &lt;vlan&gt;0&lt;/vlan&gt;
+ &lt;staticHost&gt;false&lt;/staticHost&gt;
+&lt;/hostConfig&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in JSON:
+
+{
+ "dataLayerAddress":"00:00:00:00:01:01",
+ "nodeType":"OF",
+ "nodeId":"00:00:00:00:00:00:00:01",
+ "nodeConnectorType":"OF",
+ "nodeConnectorId":"9",
+ "vlan":"0",
+ "staticHost":"false",
+ "networkAddress":"1.1.1.1"
+}</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e400">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Add a Static Host configuration</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Add a Static Host configuration. If a &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;host by the given address already &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;exists, this method will respond with &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;a non-successful status response</p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e400" data-toggle="collapse" id="detail-d91e400-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e400">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>201 Created</td>
+                                             <td>Static host created successfully</td>
+                                          </tr>
+                                          <tr>
+                                             <td>400 Bad Request</td>
+                                             <td>Invalid parameters specified, see response body for details</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The container or resource is not found</td>
+                                          </tr>
+                                          <tr>
+                                             <td>409 Conflict</td>
+                                             <td>Resource conflict, see response body for details</td>
+                                          </tr>
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller services are unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container. The Container name for the base controller is "default"</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>Host IP Address</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request body in XML
+
+&lt;hostConfig&gt;
+ &lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+ &lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+ &lt;nodeType&gt;OF&lt;/nodeType&gt;
+ &lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+ &lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+ &lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+ &lt;vlan&gt;1&lt;/vlan&gt;
+ &lt;staticHost&gt;true&lt;/staticHost&gt;
+&lt;/hostConfig&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request body in JSON:
+
+{
+ "dataLayerAddress":"00:00:00:00:01:01",
+ "nodeType":"OF",
+ "nodeId":"00:00:00:00:00:00:00:01",
+ "nodeConnectorType":"OF",
+ "nodeConnectorId":"9",
+ "vlan":"1",
+ "staticHost":"true",
+ "networkAddress":"1.1.1.1"
+}</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e259">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Delete a Static Host configuration</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Delete a Static Host configuration</p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e259" data-toggle="collapse" id="detail-d91e259-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e259">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>204 No Content</td>
+                                             <td>Static host deleted successfully</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The container or a specified resource was not found</td>
+                                          </tr>
+                                          <tr>
+                                             <td>406 Not Acceptable</td>
+                                             <td>Cannot operate on Default Container when other Containers are active</td>
+                                          </tr>
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller service is unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container. The Container name for the base controller is "default"</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>Host IP Address</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</pre>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e692">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/hosts/active</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of all Hosts</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of all Hosts : both &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;configured via PUT API and &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;dynamically learnt on the network.</p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e692" data-toggle="collapse" id="detail-d91e692-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e692">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>200 OKt</td>
+                                             <td>Operation successful</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The containerName is not found</td>
+                                          </tr>
+                                         
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller service is unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container. The Container name for the base controller is "default"</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>_q</td>
+                                             <td>(no documentation provided)</td>
+                                             <td>query</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/active</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in XML
+
+&lt;list&gt;
+ &lt;hostConfig&gt;
+  &lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+  &lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+  &lt;nodeType&gt;OF&lt;/nodeType&gt;
+  &lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+  &lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+  &lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+  &lt;vlan&gt;0&lt;/vlan&gt;
+  &lt;staticHost&gt;false&lt;/staticHost&gt;
+ &lt;/hostConfig&gt;
+ &lt;hostConfig&gt;
+  &lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+  &lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+  &lt;nodeType&gt;OF&lt;/nodeType&gt;
+  &lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+  &lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+  &lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+  &lt;vlan&gt;0&lt;/vlan&gt;
+  &lt;staticHost&gt;false&lt;/staticHost&gt;
+ &lt;/hostConfig&gt;
+&lt;/list&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in JSON:
+
+{
+ "hostConfig":[
+  {
+   "dataLayerAddress":"00:00:00:00:01:01",
+   "nodeType":"OF",
+   "nodeId":"00:00:00:00:00:00:00:01",
+   "nodeConnectorType":"OF",
+   "nodeConnectorId":"9",
+   "vlan":"0",
+   "staticHost":"false",
+   "networkAddress":"1.1.1.1"
+  },
+  {
+   "dataLayerAddress":"00:00:00:00:02:02",
+   "nodeType":"OF",
+   "nodeId":"00:00:00:00:00:00:00:02",
+   "nodeConnectorType":"OF",
+   "nodeConnectorId":"5",
+   "vlan":"0",
+   "staticHost":"false",
+   "networkAddress":"2.2.2.2"
+  }
+ ]
+}</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d91e972">
+                           <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/hosts/inactive</div>
+                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of Hosts</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of Hosts that are &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;statically configured and are &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;connected to a NodeConnector that &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;is down</p>&nbsp; 
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e972" data-toggle="collapse" id="detail-d91e972-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d91e972">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response Codes</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>HTTP Status Code</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>200 OK</td>
+                                             <td>Operation successful</td>
+                                          </tr>
+                                          <tr>
+                                             <td>404 Not Found</td>
+                                             <td>The containerName is not found</td>
+                                          </tr>
+                                         
+                                          <tr>
+                                             <td>503 Service Unavailable</td>
+                                             <td>One or more of Controller service is unavailable</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>containerName</td>
+                                             <td>Name of the Container. The Container name for the base controller is "default"</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>_q</td>
+                                             <td>(no documentation provided)</td>
+                                             <td>query</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                <pre>
+Request URL:
+http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/inactive</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in XML
+
+&lt;list&gt;
+ &lt;hostConfig&gt;
+  &lt;dataLayerAddress&gt;00:00:00:00:01:01&lt;/dataLayerAddress&gt;
+  &lt;networkAddress&gt;1.1.1.1&lt;/networkAddress&gt;
+  &lt;nodeType&gt;OF&lt;/nodeType&gt;
+  &lt;nodeId&gt;00:00:00:00:00:00:00:01&lt;/nodeId&gt;
+  &lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+  &lt;nodeConnectorId&gt;9&lt;/nodeConnectorId&gt;
+  &lt;vlan&gt;0&lt;/vlan&gt;
+  &lt;staticHost&gt;false&lt;/staticHost&gt;
+ &lt;/hostConfig&gt;
+ &lt;hostConfig&gt;
+  &lt;dataLayerAddress&gt;00:00:00:00:02:02&lt;/dataLayerAddress&gt;
+  &lt;networkAddress&gt;2.2.2.2&lt;/networkAddress&gt;
+  &lt;nodeType&gt;OF&lt;/nodeType&gt;
+  &lt;nodeId&gt;00:00:00:00:00:00:00:02&lt;/nodeId&gt;
+  &lt;nodeConnectorType&gt;OF&lt;/nodeConnectorType&gt;
+  &lt;nodeConnectorId&gt;5&lt;/nodeConnectorId&gt;
+  &lt;vlan&gt;0&lt;/vlan&gt;
+  &lt;staticHost&gt;false&lt;/staticHost&gt;
+ &lt;/hostConfig&gt;
+&lt;/list&gt;</pre>
+                              </div>
+                              <div class="example">
+                                <pre>
+Response body in JSON:
+
+{
+ "hostConfig":[
+  {
+   "dataLayerAddress":"00:00:00:00:01:01",
+   "nodeType":"OF",
+   "nodeId":"00:00:00:00:00:00:00:01",
+   "nodeConnectorType":"OF",
+   "nodeConnectorId":"9",
+   "vlan":"0",
+   "staticHost":"false",
+   "networkAddress":"1.1.1.1"
+  },
+  {
+   "dataLayerAddress":"00:00:00:00:02:02",
+   "nodeType":"OF",
+   "nodeId":"00:00:00:00:00:00:00:02",
+   "nodeConnectorType":"OF",
+   "nodeConnectorId":"5",
+   "vlan":"0",
+   "staticHost":"false",
+   "networkAddress":"2.2.2.2"
+  }
+ ]
+}</pre>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+      </div><script src="{{ url_for('static', filename = 'jquery-1.10.2.min.js') }}" type="text/javascript"></script><script src="{{ url_for('static', filename = 'bootstrap.min.js') }}" type="text/javascript"></script>
+</body></html>
