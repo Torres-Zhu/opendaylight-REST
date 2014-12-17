@@ -39,8 +39,9 @@
                         <div class="row d91e140">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">GET</span></div>
-                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a host</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a host that matches the IP &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;Address value passed as parameter</p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}
+                           </div>
+                           <div class="col-md-4"><strong>Returns a host</strong><p>Returns a host that matches the IP Address value passed as parameter</p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e140" data-toggle="collapse" id="detail-d91e140-btn">detail</button></div>
                         </div>
@@ -102,11 +103,82 @@
                                     </table>
                                  </div>
                               </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>hostConfig</td>
+                                             <td>Host configuration information</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>dataLayerAddress</td>
+                                             <td>The Data Layer Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>The network Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeType</td>
+                                             <td>The type of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeId</td>
+                                             <td>The ID of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorType</td>
+                                             <td>The type of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorId</td>
+                                             <td>The ID of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>vlan</td>
+                                             <td>The vlan a host belong to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>staticHost</td>
+                                             <td>Whether the host is a static host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <b>Request example</b>
                               <div class="example">
                                 <pre>
 Request URL:
 http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</pre>
                               </div>
+                              <b>Response example</b>
                               <div class="example">
                                 <pre>
 Response body in XML
@@ -144,8 +216,8 @@ Response body in JSON:
                         <div class="row d91e400">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">PUT</span></div>
-                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Add a Static Host configuration</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Add a Static Host configuration. If a &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;host by the given address already &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;exists, this method will respond with &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;a non-successful status response</p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
+                           <div class="col-md-4"><strong>Add a Static Host configuration</strong><p>Add a Static Host configuration. If a host by the given address already exists, this method will respond with a non-successful status response</p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e400" data-toggle="collapse" id="detail-d91e400-btn">detail</button></div>
                         </div>
@@ -207,10 +279,65 @@ Response body in JSON:
                                              <td>path</td>
                                              <td></td>
                                           </tr>
+                                          <tr>
+                                             <td>hostConfig</td>
+                                             <td>Host configuration information</td>
+                                             <td>path</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>dataLayerAddress</td>
+                                             <td>The Data Layer Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>The network Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeType</td>
+                                             <td>The type of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeId</td>
+                                             <td>The ID of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorType</td>
+                                             <td>The type of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorId</td>
+                                             <td>The ID of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>vlan</td>
+                                             <td>The vlan a host belong to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>staticHost</td>
+                                             <td>Whether the host is a static host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
                                        </tbody>
                                     </table>
                                  </div>
                               </div>
+                              <b>Request example</b>
                               <div class="example">
                                 <pre>
 Request URL:
@@ -253,8 +380,8 @@ Request body in JSON:
                         <div class="row d91e259">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">DELETE</span></div>
-                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Delete a Static Host configuration</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Delete a Static Host configuration</p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/hosttracker/{containerName}/address/{networkAddress}</div>
+                           <div class="col-md-4"><strong>Delete a Static Host configuration</strong><p>Delete a Static Host configuration</p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e259" data-toggle="collapse" id="detail-d91e259-btn">detail</button></div>
                         </div>
@@ -316,6 +443,7 @@ Request body in JSON:
                                     </table>
                                  </div>
                               </div>
+                              <b>Request example</b>
                               <div class="example">
                                 <pre>
 Request URL:
@@ -329,8 +457,8 @@ http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</pre>
                         <div class="row d91e692">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">GET</span></div>
-                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/hosts/active</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of all Hosts</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of all Hosts : both &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;configured via PUT API and &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;dynamically learnt on the network.</p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/hosttracker/{containerName}/hosts/active</div>
+                           <div class="col-md-4"><strong>Returns a list of all Hosts</strong><p>Returns a list of all Hosts : both configured via PUT API and dynamically learnt on the network.</p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e692" data-toggle="collapse" id="detail-d91e692-btn">detail</button></div>
                         </div>
@@ -389,11 +517,88 @@ http://localhost:8080/controller/nb/v2/hosttracker/default/address/1.1.1.1</pre>
                                     </table>
                                  </div>
                               </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>list</td>
+                                             <td>A list of host configuration information</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>hostConfig</td>
+                                             <td>Host configuration information</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>dataLayerAddress</td>
+                                             <td>The Data Layer Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>The network Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeType</td>
+                                             <td>The type of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeId</td>
+                                             <td>The ID of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorType</td>
+                                             <td>The type of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorId</td>
+                                             <td>The ID of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>vlan</td>
+                                             <td>The vlan a host belong to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>staticHost</td>
+                                             <td>Whether the host is a static host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <b>Request example</b>
                               <div class="example">
                                 <pre>
 Request URL:
 http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/active</pre>
                               </div>
+                              <b>Response example</b>
                               <div class="example">
                                 <pre>
 Response body in XML
@@ -457,8 +662,8 @@ Response body in JSON:
                         <div class="row d91e972">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">GET</span></div>
-                           <div class="col-md-5">/controller/nb/v2/hosttracker/{containerName}/hosts/inactive</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of Hosts</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Returns a list of Hosts that are &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;statically configured and are &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;connected to a NodeConnector that &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;is down</p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/hosttracker/{containerName}/hosts/inactive</div>
+                           <div class="col-md-4"><strong>Returns a list of Hosts</strong><p>Returns a list of Hosts that are statically configured and are connected to a NodeConnector that is down</p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e972" data-toggle="collapse" id="detail-d91e972-btn">detail</button></div>
                         </div>
@@ -517,11 +722,88 @@ Response body in JSON:
                                     </table>
                                  </div>
                               </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>list</td>
+                                             <td>A list of host configuration information</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>hostConfig</td>
+                                             <td>Host configuration information</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>dataLayerAddress</td>
+                                             <td>The Data Layer Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>networkAddress</td>
+                                             <td>The network Address of a host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeType</td>
+                                             <td>The type of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeId</td>
+                                             <td>The ID of a node which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorType</td>
+                                             <td>The type of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>nodeConnectorId</td>
+                                             <td>The ID of a nodeConnector which a host connects to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>vlan</td>
+                                             <td>The vlan a host belong to</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>staticHost</td>
+                                             <td>Whether the host is a static host</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <b>Request example</b>
                               <div class="example">
                                 <pre>
 Request URL:
 http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/inactive</pre>
                               </div>
+                              <b>Response example</b>
                               <div class="example">
                                 <pre>
 Response body in XML

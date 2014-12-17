@@ -39,9 +39,9 @@
                         <div class="row d91e140">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">GET</span></div>
-                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the Topology</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the Topology for a certain Container
-                              </p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/topology/{containerName}</div>
+                           <div class="col-md-4"><strong>Retrieve the Topology</strong><p>Retrieve the Topology for a certain Container
+                              </p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e140" data-toggle="collapse" id="detail-d91e140-btn">detail</button></div>
                         </div>
@@ -142,6 +142,42 @@
                                              <td>node</td>
                                              <td>A generic network element in multiple SDNs technologies. A Node is identified by the pair (id, type)</td>
                                              <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>id</td>
+                                             <td>Element that constitutes the NodeConnector</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>type</td>
+                                             <td>Element that constitutes the NodeConnector</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>state</td>
+                                             <td>State of an edge, "1" means up and "0" means down</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>config</td>
+                                             <td>Admin config status of an edge, "1" means up and "0" means down</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>Name of an edge</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>timeStamp</td>
+                                             <td>The time when something happened on edge</td>
+                                             <td>property</td>
                                              <td></td>
                                           </tr>
                                        </tbody>
@@ -311,9 +347,9 @@ Response body in JSON:
                         <div class="row d91e400">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">PUT</span></div>
-                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}/userLink/{name}</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Add an User Link</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Add an User Link for a certain Container
-                              </p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/topology/{containerName}/userLink/{name}</div>
+                           <div class="col-md-4"><strong>Add an User Link</strong><p>Add an User Link for a certain Container
+                              </p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e400" data-toggle="collapse" id="detail-d91e400-btn">detail</button></div>
                         </div>
@@ -437,9 +473,9 @@ Request body in JSON:
                         <div class="row d91e259">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">DELETE</span></div>
-                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}/userLink/{name}</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Delete an User Link</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Delete an User Link for a certain Container
-                              </p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/topology/{containerName}/userLink/{name}</div>
+                           <div class="col-md-4"><strong>Delete an User Link</strong><p>Delete an User Link for a certain Container
+                              </p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e259" data-toggle="collapse" id="detail-d91e259-btn">detail</button></div>
                         </div>
@@ -497,6 +533,7 @@ Request body in JSON:
                                     </table>
                                  </div>
                               </div>
+                              <b>Request example</b><br>
                               <div class="example">
                                 <pre>
 Request URL:
@@ -510,9 +547,9 @@ http://localhost:8080/controller/nb/v2/topology/default/userLink/config1</pre>
                         <div class="row d91e692">
                            <link href="./REST_API/main.css" rel="stylesheet" type="text/css">
                            <div class="col-md-1"><span class="label label-success">GET</span></div>
-                           <div class="col-md-5">/controller/nb/v2/topology/{containerName}/userLinks</div>
-                           <div class="col-md-5"><strong>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the user configured links</strong><p>&nbsp; &nbsp;&nbsp; &nbsp;Retrieve the user configured links for a certain &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Container
-                              </p>&nbsp; 
+                           <div class="col-md-6">/controller/nb/v2/topology/{containerName}/userLinks</div>
+                           <div class="col-md-4"><strong>Retrieve the user configured links</strong><p>Retrieve the user configured links for a certain Container
+                              </p>
                            </div>
                            <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d91e692" data-toggle="collapse" id="detail-d91e692-btn">detail</button></div>
                         </div>
@@ -564,11 +601,64 @@ http://localhost:8080/controller/nb/v2/topology/default/userLink/config1</pre>
                                     </table>
                                  </div>
                               </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>name</th>
+                                             <th>description</th>
+                                             <th>type</th>
+                                             <th>default</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>list</td>
+                                             <td>A list of userLinks</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>userLinks</td>
+                                             <td>A list of userLinks</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>status</td>
+                                             <td>The status of a userLink</td>
+                                             <td>property</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>The name of a userLink</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>srcNodeConnector</td>
+                                             <td>The source NodeConnector of a userLink</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>dstNodeConnector</td>
+                                             <td>The destination NodeConnector of a userLink</td>
+                                             <td>element</td>
+                                             <td></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <b>Request example</b><br>
                               <div class="example">
                                 <pre>
 Request URL:
 http://localhost:8080/controller/nb/v2/topology/default/userLinks</pre>
                               </div>
+                              <b>Response example</b><br>
                               <div class="example">
                                 <pre>
 Response body in XML:
